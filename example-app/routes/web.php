@@ -22,13 +22,21 @@ Route::get('/home', function () {
     echo "This is home page";
 });
 
-//это для создание и проверки middleware
+//Для демонсстрации создания и проверки middleware
+// Route::get('/about', function () {
+//     return view('about');
+// })->middleware('check');
+
 Route::get('/about', function () {
     return view('about');
-})->middleware('check');
+});
 
 // this is for Laravel seven format
 // Route::get('/contact', 'ContactController@index');
 
 // this is new update for Laravel eight format
-Route::get('/contact', [ContactController::class, 'index']);
+// привычный метод создания route
+//Route::get('/contact', [ContactController::class, 'index']);
+
+// другой, более проф.метод создания route для длинного имени урла
+Route::get('/dkfhdxkfh-fdlfjxkd-ksfndxkjn', [ContactController::class, 'index'])->name('mariata');

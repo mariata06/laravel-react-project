@@ -39,8 +39,7 @@
                  <h1>My Contact Page</h1>
                 <a href="{{ url('/') }}">Home</a> |
                 <a href="{{ URL::to('/about')}}">About</a> |
-                <a href="{{ URL::to('/contact')}}">Contact</a> |
-
+                <a href="{{ route('mariata')}}">Contact</a> |
 
                 <div class="mt-16">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
