@@ -18,9 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    echo "This is home page";
+});
+
+//это для создание и проверки middleware
 Route::get('/about', function () {
     return view('about');
-});
+})->middleware('check');
 
 // this is for Laravel seven format
 // Route::get('/contact', 'ContactController@index');
