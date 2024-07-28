@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,12 +42,14 @@ Route::get('/about', function () {
 // другой, более проф.метод создания route для длинного имени урла
 Route::get('/dkfhdxkfh-fdlfjxkd-ksfndxkjn', [ContactController::class, 'index'])->name('mariata');
 
-Route::middleware([
-    'auth:sanctum',
+Route::middleware(['auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+
+        $users = User::all();
+
+        return view('dashboard', compact('users'));
     })->name('dashboard');
 });
