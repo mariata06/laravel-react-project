@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CategoryController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -42,6 +43,9 @@ Route::get('/about', function () {
 
 // другой, более проф.метод создания route для длинного имени урла
 Route::get('/dkfhdxkfh-fdlfjxkd-ksfndxkjn', [ContactController::class, 'index'])->name('mariata');
+
+//Category Controller
+Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
 
 Route::middleware(['auth:sanctum',
     config('jetstream.auth_session'),
