@@ -46,6 +46,8 @@ Route::get('/dkfhdxkfh-fdlfjxkd-ksfndxkjn', [ContactController::class, 'index'])
 
 //Category Controller
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
+//Add Category Controller
+Route::post('/category/add', [CategoryController::class, 'AddCat'])->name('store.category');
 
 Route::middleware(['auth:sanctum',
     config('jetstream.auth_session'),
