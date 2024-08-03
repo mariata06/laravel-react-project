@@ -14,4 +14,9 @@ class Category extends Model
         'user_id',
         'category_name',
     ];
+
+    // добавление новой функции для объединения таблиц категории и пользователи по id номеру
+    public function user(){
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }
