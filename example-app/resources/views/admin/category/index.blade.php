@@ -53,7 +53,13 @@
                                                 @if($category->created_at == NULL)
                                                 <span class="text-danger">No Date Set</span>
                                                 @else
-                                            {{ $category->created_at ->diffForHumans()}}
+                                                <!-- diffForHumans() doesn't working in query Builder (need to use carbon & braces) -->
+                                                <!-- without query Builder -->
+                                                <!-- комментарий в синтаксисе Blade -->
+                                            {{-- {{ $category->created_at ->diffForHumans()}} --}}
+                                                <!-- with query Builder -->
+                                            {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
+
                                                 @endif
                                             </td>
                                         </tr>
