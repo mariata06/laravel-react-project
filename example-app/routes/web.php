@@ -49,6 +49,11 @@ Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.ca
 //Add Category Controller
 Route::post('/category/add', [CategoryController::class, 'AddCat'])->name('store.category');
 
+//for category editing
+Route::get('/category/edit/{id}', [CategoryController::class, 'Edit']);
+//for category update
+Route::post('/category/update/{id}', [CategoryController::class, 'Update']);
+
 Route::middleware(['auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
