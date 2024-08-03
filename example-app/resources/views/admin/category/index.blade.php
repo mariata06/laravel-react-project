@@ -43,10 +43,12 @@
                                     </thead>
                                     <tbody>
 
-                                        @php($i = 1)
+                                        <!-- @php($i = 1) -->
                                         @foreach($categories as $category)
                                         <tr>
-                                            <th scope="row">{{ $i++ }}</th>
+                                            <!-- <th scope="row">{{ $i++ }}</th> -->
+                                            <!-- when using pagination -->
+                                            <th scope="row">{{ $categories->firstItem()+$loop->index }}</th>
                                             <td>{{ $category -> category_name }}</td>
                                             <td>{{ $category->user_id }}</td>
                                             <td>
@@ -55,7 +57,7 @@
                                                 @else
                                                 <!-- diffForHumans() doesn't working in query Builder (need to use carbon & braces) -->
                                                 <!-- without query Builder -->
-                                                <!-- комментарий в синтаксисе Blade -->
+                                                <!-- комментарий в синтаксисе Blade  -->
                                             {{-- {{ $category->created_at ->diffForHumans()}} --}}
                                                 <!-- with query Builder -->
                                             {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
@@ -66,6 +68,8 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <!-- for the pagination -->
+                                {{ $categories->links() }}
                             </div>
                         </div>
 

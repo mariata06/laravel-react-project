@@ -12,9 +12,9 @@ class CategoryController extends Controller
 {
     public function AllCat() {
         // $categories = category::all();
-        $categories = Category::latest()->get();
+        // $categories = Category::latest()->paginate(7);
         // by using query Builder way
-        $categories = DB::table('categories')->latest()->get();
+        $categories = DB::table('categories')->latest()->paginate(7);
         //для отображения наших данных из базы в таблицу надо передать эти данные (admin.category.index)
         return view('admin.category.index', compact('categories'));
     }
