@@ -11,9 +11,14 @@ use Illuminate\Support\Facades\DB;
 class CategoryController extends Controller
 {
     public function AllCat() {
+        // two tables connection (categories & users) by query Builder
+        $categories = DB::table('categories')
+                ->join('users', 'categories.user_id', 'users.id')
+                ->select('categories.*', 'users.name')
+                ->latest()->paginate(5);
         // $categories = category::all();
         // by using ORM method
-        $categories = Category::latest()->paginate(7);
+        // $categories = Category::latest()->paginate(7);
         // by using query Builder way
         // $categories = DB::table('categories')->latest()->paginate(7);
         //для отображения наших данных из базы в таблицу надо передать эти данные (admin.category.index)
