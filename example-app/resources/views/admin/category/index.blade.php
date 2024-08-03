@@ -20,6 +20,13 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card">
+                                <!-- Добавление алерта при редиректе обратно на All categories -->
+                                @if(session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>{{ session('success') }}</strong> You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                @endif
                                 <div class="card-header">All category</div>
 
                                 <table class="table">
