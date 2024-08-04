@@ -19,10 +19,11 @@ class CategoryController extends Controller
         // $categories = category::all();
         // by using ORM method
         $categories = Category::latest()->paginate(7);
+        $trashCat = Category::onlyTrashed()->latest()->paginate(3);
         // by using query Builder way
         // $categories = DB::table('categories')->latest()->paginate(7);
         //для отображения наших данных из базы в таблицу надо передать эти данные (admin.category.index)
-        return view('admin.category.index', compact('categories'));
+        return view('admin.category.index', compact('categories', 'trashCat'));
     }
 
     public function AddCat(Request $request) {
@@ -77,5 +78,10 @@ class CategoryController extends Controller
         DB::table('categories')->where('id', $id)->update($data);
 
         return Redirect()->route('all.category')->with('success', 'Category Updated Successfull');
+    }
+
+    public function SoftDelete($id) {
+        $delete = Category::find($id)->delete();
+        return Redirect()->back()->with('success','Category Soft Delete Successfully');
     }
 }

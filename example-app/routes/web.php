@@ -53,10 +53,10 @@ Route::post('/category/add', [CategoryController::class, 'AddCat'])->name('store
 Route::get('/category/edit/{id}', [CategoryController::class, 'Edit']);
 //for category update
 Route::post('/category/update/{id}', [CategoryController::class, 'Update']);
+//for category deleting
+Route::get('/softdelete/category/{id}', [CategoryController::class, 'SoftDelete']);
 
-Route::middleware(['auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
 
