@@ -61,8 +61,16 @@ Route::get('/category/restore/{id}', [CategoryController::class, 'Restore']);
 //for category permanent deleteing
 Route::get('/pdelete/category/{id}', [CategoryController::class, 'Pdelete']);
 
-//routes for Brand page
+//route for Brand page
 Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
+//route for adding & storing Brand
+Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('store.brand');
+//route for editing Brand image
+Route::get('/brand/edit/{id}', [BrandController::class, 'Edit']);
+//route for updating Brand data
+Route::post('/brand/edit/{id}', [BrandController::class, 'Update']);
+//route for deleting Brand data
+Route::post('/brand/delete/{id}', [BrandController::class, 'Delete']);
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 ])->group(function () {

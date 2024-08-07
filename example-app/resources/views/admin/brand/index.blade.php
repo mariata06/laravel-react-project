@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card">
-                                <!-- Добавление алерта при редиректе обратно на All categories -->
+                                <!-- Добавление алерта при редиректе обратно на All Brands -->
                                 @if(session('success'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <strong>{{ session('success') }}</strong>
@@ -48,7 +48,7 @@
                                         <tr>
                                             <th scope="row">{{ $brands->firstItem()+$loop->index }}</th>
                                             <td>{{ $brand -> brand_name }}</td>
-                                            <td><img src="" alt=""></td>
+                                            <td><img src="{{ asset($brand->brand_image) }}" style="height:40px; width:70px;"></td>
                                             <td>
                                                 @if($brand->created_at == NULL)
                                                 <span class="text-danger">No Date Set</span>
@@ -58,7 +58,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ url('brand/edit/'.$brand->id) }}" class="btn btn-info">Edit</a>
-                                                <a href="{{ url('barnd/delete/'.$brand->id) }}" class="btn btn-danger">Delete</a>
+                                                <a href="{{ url('barnd/delete/'.$brand->id) }}" onclick="return confirm('Are you sure to delete')"class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -73,7 +73,7 @@
                             <div class="card">
                                 <div class="card-header">Add Brand</div>
                                 <div class="card-body">
-                                    <form action="{{ route('store.category') }}" method="POST">
+                                    <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Brand name</label>
@@ -86,7 +86,7 @@
 
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Brand image</label>
-                                            <input type="file" name="barnd_image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            <input type="file" name="brand_image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                                             @error('brand_image')
                                                 <span class="text-danger">{{ $message }}</span>
