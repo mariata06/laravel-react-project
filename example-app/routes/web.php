@@ -93,3 +93,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     })->name('dashboard');
 });
+
+//route for logout for dashboard page
+Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
