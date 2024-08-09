@@ -7,6 +7,12 @@ use App\Http\Controllers\BrandController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
+//route for email verification
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
