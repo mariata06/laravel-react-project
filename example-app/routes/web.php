@@ -83,8 +83,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/dashboard', function () {
 
         // $users = User::all();
-        $users = DB::table('users')->get();
+        // $users = DB::table('users')->get();
 
-        return view('dashboard', compact('users'));
+        // такой дашборд был в ларавеле по дефолту. меняем его на наш
+        // return view('dashboard', compact('users'));
+
+        // новый view для нашей админ панели
+        return view('admin.index');
+
     })->name('dashboard');
 });
