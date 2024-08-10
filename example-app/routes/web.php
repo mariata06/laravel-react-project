@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\HomeController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -78,6 +79,19 @@ Route::get('/brand/edit/{id}', [BrandController::class, 'Edit']);
 Route::post('/brand/edit/{id}', [BrandController::class, 'Update']);
 //route for deleting Brand data
 Route::post('/brand/delete/{id}', [BrandController::class, 'Delete']);
+
+// здесь из пропущенных уроков должны быть рауты для добавления и хранения картинок
+// позже вернуться к этому месту
+
+// Admin All Route
+Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
+
+
+
+
+
+
+
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 ])->group(function () {
