@@ -1,15 +1,6 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+@extends('admin.admin_master')
 
-            Edit Brand<b> </b>
-            <b style="float:right;">
-
-                <span class="badge badge-danger"></span>
-            </b>
-        </h2>
-    </x-slot>
-
+@section('admin')
     <!-- Добавление алерта при редиректе обратно на All Brands -->
                                 @if(session('success'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -67,4 +58,4 @@
                     </div>
                 </div>
             </div>
-</x-app-layout>
+@endsection
