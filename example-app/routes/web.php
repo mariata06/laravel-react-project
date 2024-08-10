@@ -27,7 +27,7 @@ Route::get('/email/verify', function () {
 
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
-    return view('home', compact('barnds'));
+    return view('home', compact('brands'));
 });
 
 Route::get('/home', function () {
@@ -84,9 +84,12 @@ Route::post('/brand/delete/{id}', [BrandController::class, 'Delete']);
 // позже вернуться к этому месту
 
 // Admin All Route
+// route for just Slider
 Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
-
-
+// route for adding slider
+Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
+// route for store slider
+Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('store.slider');
 
 
 

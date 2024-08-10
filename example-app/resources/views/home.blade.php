@@ -245,6 +245,7 @@
     </section><!-- End Portfolio Section -->
 
     <!-- ======= Our Clients Section ======= -->
+     <!-- теперь это section brends, позже поправить -->
     <section id="clients" class="clients">
       <div class="container" data-aos="fade-up">
 
