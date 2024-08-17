@@ -98,6 +98,14 @@ Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.abo
 Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
 // route for store About
 Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store.about');
+//route for editing About
+Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout']);
+//route for editing About
+Route::post('/update/homeabout/{id}', [AboutController::class, 'UpdateAbout']);
+//route for deleting About
+Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
+
+
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 ])->group(function () {
