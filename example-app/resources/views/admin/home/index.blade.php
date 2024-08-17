@@ -11,7 +11,7 @@
 
                         <h2>Home About</h2>
                         <br>
-                        <a href="{{ route('add.slider') }}"><button class="btn btn-info">Add about</button></a>
+                        <a href="{{ route('add.about') }}"><button class="btn btn-info">Add about</button></a>
 
                         <div class="col-md-12">
                             <div class="card">
@@ -45,8 +45,6 @@
                                             <td>{{ $about -> title }}</td>
                                             <td>{{ $about -> short_desc }}</td>
                                             <td>{{ $about -> long_desc }}</td>
-                                            <td><img src="{{ asset($slider->image) }}" style="height:40px; width:70px;"></td>
-
                                             <td>
                                                 <a href="{{ url('about/edit/'.$about->id) }}" class="btn btn-info">Edit</a>
                                                 <a href="{{ url('about/delete/'.$about->id) }}" onclick="return confirm('Are you sure to delete')"class="btn btn-danger">Delete</a>

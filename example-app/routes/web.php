@@ -94,9 +94,10 @@ Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('stor
 
 // route for About us
 Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
-
-
-
+// route for adding About
+Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
+// route for store About
+Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store.about');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 ])->group(function () {
