@@ -110,7 +110,9 @@ Route::post('/update/homeabout/{id}', [AboutController::class, 'UpdateAbout']);
 Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
 
 // Admin Contact Page Route
-Route::get('/admin/contact ', [ContactController::class, 'AdminContact'])->name('admin.contact');
+Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
+Route::get('/admin/add/contact', [ContactController::class, 'AdminAddContact'])->name('add.contact');
+Route::post('/admin/store/contact', [ContactController::class, 'AdminStoreContact'])->name('store.contact');
 
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',

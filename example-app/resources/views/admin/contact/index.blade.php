@@ -11,7 +11,7 @@
 
                         <h2>Contact Page</h2>
                         <br>
-                        <a href="{{ route('add.about') }}"><button class="btn btn-info">Add Contact</button></a>
+                        <a href="{{ route('add.contact') }}"><button class="btn btn-info">Add Contact</button></a>
 
                         <div class="col-md-12">
                             <div class="card">
@@ -42,7 +42,7 @@
                                         @foreach($contacts as $con)
                                         <tr>
                                             <th scope="row">{{ $i++ }}</th>
-                                            <td>{{ $con->adfdress }}</td>
+                                            <td>{{ $con->address }}</td>
                                             <td>{{ $con->email }}</td>
                                             <td>{{ $con->phone }}</td>
                                             <td>

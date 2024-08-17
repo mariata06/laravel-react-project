@@ -19,9 +19,9 @@ class AboutController extends Controller
 
     public function StoreAbout(Request $request) {
         HomeAbout::insert([
-            'title' => $request -> title,
-            'short_desc' => $request -> short_desc,
-            'long_desc' => $request -> long_desc,
+            'title' => $request->title,
+            'short_desc' => $request->short_desc,
+            'long_desc' => $request->long_desc,
             'created_at' => Carbon::now()
         ]);
 
