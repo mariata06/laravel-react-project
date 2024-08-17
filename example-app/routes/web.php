@@ -84,6 +84,9 @@ Route::post('/brand/delete/{id}', [BrandController::class, 'Delete']);
 
 // здесь из пропущенных уроков должны быть рауты для добавления и хранения картинок
 // позже вернуться к этому месту
+// Multi mage Route for Brand
+// Route::get('/multi/image', [BrandController::class, 'Multpic'])->name('multi.image');
+// Route::post('/multi/add', [BrandController::class, 'StoreImg'])->name('store.image');
 
 // Admin All Route
 // route for just Slider
@@ -106,6 +109,8 @@ Route::post('/update/homeabout/{id}', [AboutController::class, 'UpdateAbout']);
 //route for deleting About
 Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
 
+// Admin Contact Page Route
+Route::get('/admin/contact ', [ContactController::class, 'AdminContact'])->name('admin.contact');
 
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
