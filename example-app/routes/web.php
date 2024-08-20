@@ -116,6 +116,7 @@ Route::post('/admin/store/contact', [ContactController::class, 'AdminStoreContac
 
 // home Contact Page Route
 Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
+Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
 
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
