@@ -114,6 +114,9 @@ Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('
 Route::get('/admin/add/contact', [ContactController::class, 'AdminAddContact'])->name('add.contact');
 Route::post('/admin/store/contact', [ContactController::class, 'AdminStoreContact'])->name('store.contact');
 
+// home Contact Page Route
+Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
+
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 ])->group(function () {
